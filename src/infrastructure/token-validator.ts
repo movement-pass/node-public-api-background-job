@@ -1,8 +1,8 @@
 import { injectable } from 'tsyringe';
 import { verify } from 'jsonwebtoken';
 
-import { Config } from './config';
 import { dump } from '../lib/dump';
+import { Config } from './config';
 
 @injectable()
 class TokenValidator {
