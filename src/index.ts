@@ -6,7 +6,7 @@ import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { captureAWSv3Client } from 'aws-xray-sdk';
 
-import { KinesisStreamEvent, KinesisStreamHandler } from 'aws-lambda';
+import { SQSEvent, SQSHandler } from 'aws-lambda';
 
 import { Processor } from './processor';
 
@@ -31,8 +31,8 @@ import { Processor } from './processor';
   container.register('DynamoDB', { useValue: dynamodb });
 })();
 
-function createHandler(processor: Processor): KinesisStreamHandler {
-  return async (event: KinesisStreamEvent): Promise<void> => {
+function createHandler(processor: Processor): SQSHandler {
+  return async (event: SQSEvent): Promise<void> => {
     await processor.process(event.Records);
   };
 }

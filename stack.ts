@@ -2,20 +2,15 @@ import { App, Construct, Duration, Stack, StackProps } from '@aws-cdk/core';
 
 import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
 
-import {
-  Code,
-  Function,
-  Runtime,
-  StartingPosition,
-  Tracing
-} from '@aws-cdk/aws-lambda';
+import { Code, Function, Runtime, Tracing } from '@aws-cdk/aws-lambda';
 
 import { StringParameter } from '@aws-cdk/aws-ssm';
 
 import { Table } from '@aws-cdk/aws-dynamodb';
 
-import { Stream } from '@aws-cdk/aws-kinesis';
-import { KinesisEventSource } from '@aws-cdk/aws-lambda-event-sources';
+import { Queue } from '@aws-cdk/aws-sqs';
+
+import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
 
 class BackgroundJobStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
@@ -27,10 +22,10 @@ class BackgroundJobStack extends Stack {
     const name = `${app}_public-api-background-job_${version}`;
     const configRootKey = `/${app}/${version}`;
 
-    const stream = Stream.fromStreamArn(
+    const queue = Queue.fromQueueArn(
       this,
-      'Stream',
-      `arn:aws:kinesis:${this.region}:${this.account}:stream/passes-load`
+      'Queue',
+      `arn:aws:sqs:${this.region}:${this.account}:${app}_passes_load_${version}.fifo`
     );
 
     const lambda = new Function(this, 'Lambda', {
@@ -72,15 +67,9 @@ class BackgroundJobStack extends Stack {
       table.grantReadWriteData(lambda);
     }
 
-    lambda.addEventSource(
-      new KinesisEventSource(stream, {
-        batchSize: 1000,
-        maxBatchingWindow: Duration.minutes(1),
-        startingPosition: StartingPosition.LATEST
-      })
-    );
+    lambda.addEventSource(new SqsEventSource(queue));
 
-    stream.grantRead(lambda);
+    queue.grantConsumeMessages(lambda);
   }
 }
 

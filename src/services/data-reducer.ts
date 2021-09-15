@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { injectable } from 'tsyringe';
 
-import { KinesisStreamRecord } from 'aws-lambda';
+import { SQSRecord } from 'aws-lambda';
 
 import { Id } from '../lib/id';
 import { IPass } from '../pass';
@@ -18,9 +18,9 @@ class DataReducer {
     private readonly _tokenValidator: TokenValidator
   ) {}
 
-  async reduce(records: KinesisStreamRecord[]): Promise<IPass[]> {
+  async reduce(records: SQSRecord[]): Promise<IPass[]> {
     const deserializedRecords = records.map((record) =>
-      this._deserializer.deserialize(record.kinesis)
+      this._deserializer.deserialize(record.body)
     );
 
     const inputValidatedRecords = deserializedRecords
