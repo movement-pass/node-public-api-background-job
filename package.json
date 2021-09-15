@@ -5,7 +5,6 @@
   "main": "build/src/index.js",
   "license": "MIT",
   "scripts": {
-    "start": "ts-node src/local.ts",
     "format": "prettier --write **/*.ts",
     "lint": "eslint ./ --fix",
     "test": "jest",
