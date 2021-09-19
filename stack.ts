@@ -33,7 +33,7 @@ class BackgroundJobStack extends Stack {
       handler: 'index.handler',
       runtime: Runtime.NODEJS_14_X,
       memorySize: 3008,
-      timeout: Duration.minutes(15),
+      timeout: Duration.minutes(5),
       tracing: Tracing.ACTIVE,
       code: Code.fromAsset(`./dist`),
       environment: {
