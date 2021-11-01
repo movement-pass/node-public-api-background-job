@@ -35,7 +35,7 @@
     "@aws-cdk/aws-lambda-event-sources": "^1.129.0",
     "@aws-cdk/aws-sqs": "^1.129.0",
     "@aws-cdk/aws-ssm": "^1.129.0",
-    "@aws-cdk/core": "^1.129.0",
+    "@aws-cdk/core": "^1.130.0",
     "@types/aws-lambda": "^8.10.84",
     "@types/jest": "^27.0.2",
     "@types/jsonwebtoken": "^8.5.5",
