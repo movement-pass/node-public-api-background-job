@@ -1,7 +1,5 @@
 import 'reflect-metadata';
 
-import { KinesisStreamRecordPayload } from 'aws-lambda';
-
 import { RecordDeserializer } from './record-deserializer';
 import { IApplyRequest } from '../apply-request';
 
@@ -12,9 +10,7 @@ describe('RecordDeserializer', () => {
     beforeAll(() => {
       const deserializer = new RecordDeserializer();
 
-      res = deserializer.deserialize({
-        data: Buffer.from('{ "token": "123" }').toString('base64')
-      } as KinesisStreamRecordPayload);
+      res = deserializer.deserialize('{ "token": "123" }');
     });
 
     it('returns deserialized object', () => {
