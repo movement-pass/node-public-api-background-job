@@ -23,7 +23,7 @@ class TokenValidator {
             return resolve(undefined);
           }
 
-          resolve(decoded.id);
+          resolve((decoded as Record<string, string>).id);
         }
       );
     });
