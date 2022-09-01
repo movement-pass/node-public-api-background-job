@@ -33,7 +33,7 @@
     "@aws-cdk/aws-iam": "^1.167.0",
     "@aws-cdk/aws-kinesis": "^1.167.0",
     "@aws-cdk/aws-lambda": "^1.167.0",
-    "@aws-cdk/aws-lambda-event-sources": "^1.167.0",
+    "@aws-cdk/aws-lambda-event-sources": "^1.171.0",
     "@aws-cdk/aws-ssm": "^1.167.0",
     "@aws-cdk/core": "^1.167.0",
     "@types/aws-lambda": "^8.10.101",
