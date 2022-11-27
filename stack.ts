@@ -32,7 +32,7 @@ class BackgroundJobStack extends Stack {
     const lambda = new Function(this, 'Lambda', {
       functionName: name,
       handler: 'index.handler',
-      runtime: Runtime.NODEJS_16_X,
+      runtime: Runtime.NODEJS_18_X,
       memorySize: 3008,
       timeout: Duration.minutes(5),
       tracing: Tracing.ACTIVE,
