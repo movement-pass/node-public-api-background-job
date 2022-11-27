@@ -1,16 +1,17 @@
-import { App, Construct, Duration, Stack, StackProps } from '@aws-cdk/core';
+import { Construct } from 'constructs';
+import { App, Duration, Stack, StackProps } from 'aws-cdk-lib';
 
-import { Effect, PolicyStatement } from '@aws-cdk/aws-iam';
+import { Effect, PolicyStatement } from 'aws-cdk-lib/aws-iam';
 
-import { Code, Function, Runtime, Tracing } from '@aws-cdk/aws-lambda';
+import { Code, Function, Runtime, Tracing } from 'aws-cdk-lib/aws-lambda';
 
-import { StringParameter } from '@aws-cdk/aws-ssm';
+import { StringParameter } from 'aws-cdk-lib/aws-ssm';
 
-import { Table } from '@aws-cdk/aws-dynamodb';
+import { Table } from 'aws-cdk-lib/aws-dynamodb';
 
-import { Queue } from '@aws-cdk/aws-sqs';
+import { Queue } from 'aws-cdk-lib/aws-sqs';
 
-import { SqsEventSource } from '@aws-cdk/aws-lambda-event-sources';
+import { SqsEventSource } from 'aws-cdk-lib/aws-lambda-event-sources';
 
 class BackgroundJobStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
