@@ -37,7 +37,7 @@
     "@typescript-eslint/parser": "^5.47.1",
     "@vercel/ncc": "^0.36.0",
     "aws-cdk-lib": "^2.58.1",
-    "constructs": "^10.1.206",
+    "constructs": "^10.1.237",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-github": "^4.6.0",
