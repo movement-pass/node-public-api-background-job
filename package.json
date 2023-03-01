@@ -22,7 +22,7 @@
     "aws-lambda": "^1.0.7",
     "aws-xray-sdk": "^3.4.1",
     "dayjs": "^1.11.7",
-    "joi": "^17.7.0",
+    "joi": "^17.8.3",
     "jsonwebtoken": "^9.0.0",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.7.0",
