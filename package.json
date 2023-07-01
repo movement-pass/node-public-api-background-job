@@ -21,7 +21,7 @@
     "@aws-sdk/lib-dynamodb": "^3.326.0",
     "aws-lambda": "^1.0.7",
     "aws-xray-sdk": "^3.5.0",
-    "dayjs": "^1.11.7",
+    "dayjs": "^1.11.9",
     "joi": "^17.9.2",
     "jsonwebtoken": "^9.0.0",
     "reflect-metadata": "^0.1.13",
