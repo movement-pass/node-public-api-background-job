@@ -24,7 +24,7 @@
     "dayjs": "^1.11.10",
     "joi": "^17.10.2",
     "jsonwebtoken": "^9.0.2",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.1.14",
     "tsyringe": "^4.8.0",
     "uuid": "^9.0.1"
   },
