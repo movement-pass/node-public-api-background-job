@@ -23,7 +23,7 @@
     "aws-xray-sdk": "^3.5.2",
     "dayjs": "^1.11.10",
     "joi": "^17.10.2",
-    "jsonwebtoken": "^9.0.2",
+    "jsonwebtoken": "^9.0.3",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.8.0",
     "uuid": "^9.0.1"
